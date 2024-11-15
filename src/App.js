@@ -1,12 +1,26 @@
-import logo from './logo.svg';
-import './App.css';
+// router
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+// pages
+import Home from './pages/Home';
+import About  from './pages/About';
+import Article from './pages/Article';
+import ArticlesList from './pages/ArticlesList';
+import Navbar from './components/Navbar';
+
 
 function App() {
   return (
-    <div className="bg-red-600 text-center text-white py-5 font-medium">
-      
-          Learn React
+    <Router>
+    <Navbar/>
+      <div className="mx-auto px-32">
+     <Routes>
+     <Route path='/' element={<Home />} />
+     <Route path='/about' element={<About />} />
+     <Route path='/article' element={<Article />} />
+     <Route path='/articles' element={<ArticlesList />} />
+     </Routes>
     </div>
+    </Router>
   );
 }
 
