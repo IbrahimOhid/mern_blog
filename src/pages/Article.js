@@ -1,18 +1,18 @@
 import React from 'react'
 import { useParams } from 'react-router-dom'
-import ArticleContent from './Article-Content'
-
+import articleContent from './Article-Content'
 
 const Article = () => {
   const {name} = useParams();
-  const article = ArticleContent.find((article)=> article.name === name);
-  if(!article) return <h1 className='text-center bg-red-600 text-white py-3 mt-10'>Article Not Found!</h1>
+  const article = articleContent.find((article)=> article.name === name)
   return (
     <div>
-      <h1 className='text-3xl mt-10 font-bold'>{article.title}</h1>
-     {article.content.map((paragraph, index)=> (
-      <p className='text-blue-600 mt-3' key={index}>{paragraph}</p>
-     ))}
+    <h1 className='bg-yellow-700  px-3 mb-5 text-white mt-10 py-4 font-semibold text-2xl'>{article.title}</h1>
+    {
+      article.content.map((paragraph, index)=>(
+        <p className='text-base'>{paragraph}</p>
+      ))
+    }
     </div>
   )
 }
